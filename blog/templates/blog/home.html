@@ -1,14 +1,15 @@
-<!-- my_project/blog/templates/blog/home.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Blog</title>
 </head>
-<body>
-    <h1>Welcome to Our Blog</h1>
-    <p>This is the homepage of our blog. Here you can find the latest posts and news.</p>
-    <a href="{% url 'about' %}">About Us</a>
+<body>  
+	{% for post in posts %}
+		<h2>{{ post.title }}</h2>
+		<small>Published on {{ post.published_at }} by {{ post.author}}</small>
+		<p>{{ post.content }}</p>
+	{% endfor %}
 </body>
 </html>
